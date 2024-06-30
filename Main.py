@@ -39,6 +39,16 @@ def buy_item (item_name, Item_count):
         print(f'{item_name} is not present in inventory.')
 
 
+def change_price(item_name, item_price):
+    if item_name in inventory:
+        inventory[item_name]['price'] = item_price
+        save_inventory()
+        print()
+        print(f'The new price of {item_name} is PKR{item_price}')
+    else:
+        print(f'{item_name} is not present in inventory.')
+
+
 
 
 
@@ -52,6 +62,7 @@ def main ():
     while True:
         print('1. Add new items')
         print('2. Buy items')
+        print('3. Change item price')
 
         choice = int(input('Please enter your choice:'))
         if choice == 1:
@@ -63,6 +74,10 @@ def main ():
             item_name = input('Please enter item name:')
             Item_count = int(input('Please enter number of item:'))
             buy_item (item_name, Item_count)
+        if choice == 3:
+            item_name = input('Please enter item name:')
+            Item_price= float(input('Please enter price of item:'))
+            change_price (item_name, Item_price)    
 
 
 main()
