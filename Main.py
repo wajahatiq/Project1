@@ -48,6 +48,13 @@ def change_price(item_name, item_price):
     else:
         print(f'{item_name} is not present in inventory.')
 
+def update_inventory (item_name, Item_count):
+    if item_name in inventory:
+        inventory[item_name]['count'] = Item_count
+        save_inventory()
+        print()
+        print(f'{item_name} quantity has been updated to {Item_count} units.')
+
 
 
 
@@ -63,6 +70,8 @@ def main ():
         print('1. Add new items')
         print('2. Buy items')
         print('3. Change item price')
+        print('4. Change item quantity')
+
 
         choice = int(input('Please enter your choice:'))
         if choice == 1:
@@ -76,8 +85,11 @@ def main ():
             buy_item (item_name, Item_count)
         if choice == 3:
             item_name = input('Please enter item name:')
-            Item_price= float(input('Please enter price of item:'))
+            Item_price= float(input('Please enter new price of item:'))
             change_price (item_name, Item_price)    
-
+        if choice == 4:
+            item_name = input('Please enter item name:')
+            Item_count = int(input('Please enter the new quantity of the item:'))
+            update_inventory (item_name, Item_count)
 
 main()
