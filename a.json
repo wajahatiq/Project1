@@ -1,0 +1,18 @@
+{
+    "cat": {
+        "count": 8,
+        "price": 35.0
+    },
+    "car": {
+        "count": 1,
+        "price": 200.0
+    },
+    "meat": {
+        "count": 25,
+        "price": 65.0
+    },
+    "bike": {
+        "count": 5,
+        "price": 300.0
+    }
+}
