@@ -15,7 +15,10 @@ def add_item (item_name, Item_count, Item_price):
     if item_name not in inventory:
         inventory[item_name] = {'count':Item_count, 'price':Item_price}
         save_inventory()
+        print()
         print(f'{item_name} added to inventory.')
+        print()
+        print('===== Inventory =====\n')
         print(inventory)
     else:
         print(f'The {item_name} is already listed in inventory, please update item to make changes.')
@@ -28,8 +31,8 @@ def buy_item (item_name, Item_count):
          sale = Item_count * inventory[item_name]['price']
          total_sales += sale
          save_inventory()
-         print(f'You have bought {Item_count}{item_name}. Total price is: PKR{sale}.')
-         print('Remaining items in inventory are:')
+         print(f'\nYou have bought {Item_count}: {item_name}. Total price is: PKR{sale}.')
+         print('\nRemaining items in inventory are:')
          print(inventory)
     elif item_name in inventory:
         print(f'Entered quantity is not present. Available: {inventory[item_name]['count']}.')
@@ -42,7 +45,7 @@ def change_price(item_name, item_price):
         inventory[item_name]['price'] = item_price
         save_inventory()
         print()
-        print(f'The new price of {item_name} is PKR{item_price}')
+        print(f'--- The new price of {item_name} is PKR{item_price}')
     else:
         print(f'{item_name} is not present in inventory.')
 
@@ -52,8 +55,9 @@ def update_inventory (item_name, Item_count):
         inventory[item_name]['count'] = Item_count
         save_inventory()
         print()
-        print(f'{item_name} quantity has been updated to {Item_count} units.')
-
+        print(f'--- {item_name} quantity has been updated to {Item_count} units.')
+    else:
+        print(f"{item_name} is not presentt in inventory.")
 
 def display_inventory ():
     print()
@@ -107,7 +111,7 @@ def main ():
         elif choice == 5:
             display_inventory()
         elif choice == 6:
-            print(f"Total Sales Amount is: PKR{total_sales}.")  
+            print(f"\n --- Total Sales Amount is: PKR{total_sales}.")  
         elif choice == 7:
             print("Exiting programme.")
             break
